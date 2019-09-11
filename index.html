@@ -1,15 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>NG Practice</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
-<script src="angularjs/angular.js" ></script>
-</head>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>NG Practice</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	<script src="angularjs/angular.js" ></script>
+	<script src="angularjs/angular-route.js"></script>
+	<script src="app/app.js" ></script>
 
-<body ng-app="">
-<input  type="text" ng-model="name"/>
-<button class="btn btn-primary" type="button" >Add</button>
-{{name}}
-</body>
-</html>
+	<script src="bootstrap/js/bootstrap.js"></script>
+
+	<style>
+		.warning-lebel {
+			color: black;
+			background-color: yellow
+		}
+	</style>
+	</head>
+	
+	<body ng-app="app">
+	
+		<div ng-controller="todoCtrl">
+			<h4 class="page-item">{{todoName}} Incompleted<span   ng-class="warning()" > {{incomplete()}}</span></h4>
+
+			<div>
+				<div class="input-group">
+					<input type="text" ng-model='todoInput'  class="form-control"/>
+					<button style="width: 30%" type="button" class="btn btn-primary" ng-click="addTodo()" >Add</button>
+				</div>
+				<div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Done</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="todo in todos">
+								<td>{{todo.name}}</td>
+								<td><input type="checkbox" ng-model="todo.complete" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<a href="#!test">Test</a>
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+	</html>
