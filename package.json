@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "connect": "^2.30.2",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
